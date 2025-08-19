@@ -1,0 +1,21 @@
+# Netlify configuration file
+
+# This rule proxies requests from your Netlify site to the QuickBooks API proxy.
+# It is essential for avoiding CORS errors in your production deployment.
+[[redirects]]
+from = "/proxy/*"
+to = "https://local-cor-proxy.onrender.com/proxy/:splat"
+status = 200                                             # Use 200 for a rewrite, which is transparent to the user.
+force = true                                             # Ensures this rule is applied even if a file exists at the path.
+
+# The following build settings are standard for Vite projects.
+# If you have existing build configurations, you may need to merge them.
+[build]
+command = "npm run build"
+publish = "dist"
+
+# Redirect all other requests to index.html for single-page application (SPA) routing.
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

@@ -1,0 +1,86 @@
+# ─── DEPENDENCIES ───────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+jspm_packages/
+bower_components
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# ─── LOG FILES ──────────────────────────────────
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ─── BUILD & OUTPUT ─────────────────────────────
+build/
+dist/
+out/
+.next/
+.nuxt
+.cache
+.parcel-cache
+.temp
+.vuepress/dist
+.svelte-kit/
+.serverless/
+.docusaurus
+web_modules/
+.vitepress/dist
+.vitepress/cache
+
+# ─── COVERAGE & TEST ────────────────────────────
+coverage
+*.lcov
+.nyc_output
+.vscode-test
+
+# ─── ENVIRONMENT VARIABLES ──────────────────────
+.env
+.env.*
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ─── CONFIG & CACHES ────────────────────────────
+*.tsbuildinfo
+.eslintcache
+.stylelintcache
+.node_repl_history
+.yarn-integrity
+.DS_Store
+.vscode/
+
+# ─── CUSTOM ─────────────────────────────────────
+lib-cov
+.grunt
+.lock-wscript
+build/Release
+.dynamodb/
+.fusebox/
+.tern-port
+
+# ─── VITE ───────────────────────────────────────
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Bit
+.bit
+public
+# Bit files - generated during bit ws-config write command
+tsconfig.json
+.eslintrc.json
+.prettierrc.cjs
+# allow tsconfig from the env's config dir to be tracked
+!**/config/tsconfig.json
+node_modules

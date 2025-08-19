@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Viewer Test</title>
+    <script>
+        // Sample assessment data structure for testing
+        const sampleAssessment = {
+            overallScore: 78,
+            readinessStatus: "MINOR_FIXES_NEEDED",
+            pillarScores: {
+                reconciliation: 85,
+                coaIntegrity: 75,
+                categorization: 80,
+                controlAccount: 70,
+                aging: 82
+            },
+            businessOwnerSummary: {
+                healthScore: "GOOD - Minor adjustments needed",
+                whatThisMeans: "Your books are in decent shape with some room for improvement. With focused effort on a few key areas, you can achieve optimal financial clarity within 2-3 weeks.",
+                keyFindings: [
+                    "Bank reconciliations are mostly up-to-date with minor discrepancies",
+                    "Chart of accounts has good structure but needs some cleanup",
+                    "Transaction categorization is consistent for most entries",
+                    "Control accounts show minor imbalances that need attention",
+                    "Customer aging is well-maintained with a few old items to review"
+                ],
+                nextSteps: [
+                    "Schedule weekly reconciliation reviews for the next month",
+                    "Clean up duplicate and inactive accounts in your chart",
+                    "Review and recategorize uncategorized transactions",
+                    "Work with your bookkeeper to clear control account discrepancies"
+                ]
+            },
+            bookkeeperReport: {
+                criticalIssues: [
+                    {
+                        priority: 1,
+                        pillar: "Control Accounts",
+                        issue: "Undeposited Funds account has a balance older than 30 days",
+                        qboLocation: "Banking > Undeposited Funds",
+                        fixSteps: "Review all items in Undeposited Funds, create bank deposits for cleared items",
+                        estimatedTime: "2-3 hours"
+                    },
+                    {
+                        priority: 2,
+                        pillar: "Chart of Accounts",
+                        issue: "15 duplicate accounts detected in expense categories",
+                        qboLocation: "Settings > Chart of Accounts > Expenses",
+                        fixSteps: "Merge duplicate accounts, reclassify transactions as needed",
+                        estimatedTime: "1-2 hours"
+                    }
+                ],
+                recommendedImprovements: [
+                    "Set up bank rules for recurring transactions",
+                    "Create custom categories for industry-specific expenses",
+                    "Implement monthly close checklist",
+                    "Configure automatic bank feeds if not already active"
+                ],
+                ongoingMaintenance: [
+                    "Weekly bank reconciliation (Fridays)",
+                    "Monthly review of aged receivables",
+                    "Quarterly chart of accounts audit",
+                    "Daily transaction categorization"
+                ]
+            },
+            assessmentMetadata: {
+                assessmentDate: new Date().toISOString(),
+                dataPeriod: "January 2024 - December 2024",
+                scoringModel: "Day-30 Readiness Framework",
+                limitations: [
+                    "Assessment based on available QuickBooks data only",
+                    "Manual adjustments not reflected in scoring"
+                ]
+            }
+        };
+
+        console.log("Sample Assessment Data Structure:");
+        console.log(JSON.stringify(sampleAssessment, null, 2));
+        
+        // Function to download as JSON
+        function downloadJSON() {
+            const dataStr = JSON.stringify(sampleAssessment, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = 'assessment_data.json';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+        }
+    </script>
+</head>
+<body>
+    <h1>Assessment Viewer Test</h1>
+    <p>This page demonstrates the assessment data structure.</p>
+    <button onclick="downloadJSON()">Download Sample Assessment JSON</button>
+    <pre id="output"></pre>
+    <script>
+        document.getElementById('output').textContent = JSON.stringify(sampleAssessment, null, 2);
+    </script>
+</body>
+</html>
